@@ -65,7 +65,7 @@ def getTweetText(item):
 	if item.link <> item.commentLink:
 		shortCommentLink = getShortLink(item.commentLink)
 		maxLength -= (len(COMMENT_TEXT) + len(shortCommentLink))
-	tweetText = item.title[:maxLength] + DIVIDER_TEXT + shortLink
+	tweetText = item.title.strip(" .,:;!?")[:maxLength] + DIVIDER_TEXT + shortLink
 	if item.link <> item.commentLink:
 		tweetText += COMMENT_TEXT + shortCommentLink
 	return tweetText

@@ -4,8 +4,8 @@ Introduction
 This is the code for the HNTweets bot, which powers the @HNTweets twitter
 account (http://twitter.com/HNTweets)
 
-The project consists of a main script, 'HNTweets.py' which can be invoked with
-no arguments, like so:
+The project consists of a main script 'HNTweets.py', and a script to clear down the
+database 'cleanup.py'. Both of which can be invoked with no arguments, for example:
 
   > python HNTweets.py
 

@@ -1,7 +1,6 @@
 import urllib
 import sqlite3
 import datetime
-import bitly
 import tweepy
 from xml.dom.minidom import parseString
 from settings import *
@@ -55,15 +54,11 @@ def insertLink(item):
 	conn.commit()
 	conn.close()
 
-def getShortLink(link):
-	api = bitly.Api(login=BITLY_LOGIN, apikey=BITLY_API_KEY)
-	return api.shorten(link)
-
 def getTweetText(item):
-	shortLink = getShortLink(item.link)
+	shortLink = item.link
 	maxLength = TWITTER_MAX - (len(shortLink) + len(DIVIDER_TEXT))
 	if item.link <> item.commentLink:
-		shortCommentLink = getShortLink(item.commentLink)
+		shortCommentLink = item.commentLink
 		maxLength -= (len(COMMENT_TEXT) + len(shortCommentLink))
 	tweetText = item.title.strip(" .,:;!?")[:maxLength] + DIVIDER_TEXT + shortLink
 	if item.link <> item.commentLink:

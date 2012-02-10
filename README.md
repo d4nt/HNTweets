@@ -5,7 +5,7 @@ account (http://twitter.com/HNTweets)
 The project consists of a main script 'HNTweets.py', and a script to clear down the
 database 'cleanup.py'. Both of which can be invoked with no arguments, for example:
 
-  > python HNTweets.py
+    python HNTweets.py
 
 The script will import the 'settings' module, i.e. it relies on having a
 settings.py file in the same directory. The 'settings.py.dummy' file is included
@@ -13,7 +13,7 @@ which contains all the declarations of the real file, but none of the sensitive
 information. To run the HNTweets.py script, you should first rename
 settings.py.dummy to settings.py:
 
-  > mv settings.py.dummy settings.py
+    mv settings.py.dummy settings.py
 
 And then populate the missing fields with a valid bit.ly and Twitter security
 information.
@@ -23,12 +23,13 @@ messages to Twitter.
 
 ## Requirements
 This code requires:
+
 * sqlite3
 * tweepy
 
 The file requirements.txt contains the output of pip freeze -l and can be used to install any non-standard libaries like so:
 
-  > pip install -r requirements.txt
+    pip install -r requirements.txt
 
 # License
 This code is licensed under the Simplified BSD License

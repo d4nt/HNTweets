@@ -1,7 +1,5 @@
 HACKER_NEWS_RSS_URL = "http://news.ycombinator.com/rss"
 LOCAL_LINK_DB = "HNlinks.db"
-BITLY_LOGIN = "hntweet"
-BITLY_API_KEY = ""
 TWITTER_MAX = 137 # Allow for traditional retweets
 DEBUG_MODE = True
 TWITTER_CUSTOMER_KEY = ""

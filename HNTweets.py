@@ -55,14 +55,12 @@ def insertLink(item):
 	conn.close()
 
 def getTweetText(item):
-	shortLink = item.link
-	maxLength = TWITTER_MAX - (len(shortLink) + len(DIVIDER_TEXT))
+	maxTitleTextLength = TWITTER_MAX - (TCO_SHORT_URL_LENGTH + len(DIVIDER_TEXT))
 	if item.link <> item.commentLink:
-		shortCommentLink = item.commentLink
-		maxLength -= (len(COMMENT_TEXT) + len(shortCommentLink))
-	tweetText = item.title.strip(" .,:;!?")[:maxLength] + DIVIDER_TEXT + shortLink
+		maxTitleTextLength -= (len(COMMENT_TEXT) + TCO_SHORT_URL_LENGTH)
+	tweetText = item.title.strip(" .,:;!?")[:maxTitleTextLength] + DIVIDER_TEXT + item.link
 	if item.link <> item.commentLink:
-		tweetText += COMMENT_TEXT + shortCommentLink
+		tweetText += COMMENT_TEXT + item.commentLink
 	return tweetText
 
 def submitTweet(tweetText):

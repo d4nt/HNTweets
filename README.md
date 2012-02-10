@@ -1,6 +1,4 @@
-Introduction
-------------
-
+# Introduction
 This is the code for the HNTweets bot, which powers the @HNTweets twitter
 account (http://twitter.com/HNTweets)
 
@@ -23,14 +21,16 @@ information.
 The setting DEBUG_MODE can be set to true to prevent the acutal posting of
 messages to Twitter.
 
-This code requires the following libraries:
- - bitly.py
- - tweepy-1.4
- - sqlite3
+## Requirements
+This code requires:
+* sqlite3
+* tweepy
 
-License
--------
+The file requirements.txt contains the output of pip freeze -l and can be used to install any non-standard libaries like so:
 
+  > pip install -r requirements.txt
+
+# License
 This code is licensed under the Simplified BSD License
 
 Copyright 2009 Daniel Thompson. All rights reserved.

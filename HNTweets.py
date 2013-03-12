@@ -54,13 +54,21 @@ def insertLink(item):
 	conn.commit()
 	conn.close()
 
+def fixCommentLink(link):
+    protocolEnd = 0
+    if "//" in link:
+        protocolEnd = link.index("//") + len("//")
+        return "https://" + link[protocolEnd:]
+    else:
+        return "https://" + link.lstrip("/")
+
 def getTweetText(item):
 	maxTitleTextLength = TWITTER_MAX - (TCO_SHORT_URL_LENGTH + len(DIVIDER_TEXT))
 	if item.link <> item.commentLink:
 		maxTitleTextLength -= (len(COMMENT_TEXT) + TCO_SHORT_URL_LENGTH)
 	tweetText = item.title.strip(" .,:;!?")[:maxTitleTextLength] + DIVIDER_TEXT + item.link
 	if item.link <> item.commentLink:
-		tweetText += COMMENT_TEXT + item.commentLink
+		tweetText += COMMENT_TEXT + fixCommentLink(item.commentLink)
 	return tweetText
 
 def submitTweet(tweetText):
